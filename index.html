@@ -64,19 +64,30 @@
                 }
             }
 
-            function getData() {
-                var superData = document.getElementById("super");
-                const url = "http://api.dev.helloyuna.io/variant/Bl";
+            var superData = document.getElementById("super");
+            const request = new Request("http://api.dev.helloyuna.io/ref/", {
+                method: 'GET',
+                headers: new Headers({
+                    'Authorization': `Token a3f32595ba93a09ae16d34632a985a56c65dfde2`,
+                    'x-yuna-app-id': 'a63efbc7-02b9-4a87-b10b-b87888ba84a5',
+                    'x-yuna-secret': 'p5grmq-389096ca62496cd053ba',
+                    'x-device-type': 'ios-mobile',
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Cache-Control': 'no-cache',
+                })
+            });
 
-                console.log("run this");
-                
-                
-                fetch(url)
-                    .then(res => res.json())
-                    .then((result) => {
-                        console.log(result);
-                    })
-            }
+            console.log("run this");
+            
+            
+            fetch(request)
+                .then(res => res.json())
+                .then((result) => {
+                    console.log(result);
+                    alert(result)
+                })
+
         </script>
     </body>
 </html>
